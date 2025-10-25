@@ -17,4 +17,6 @@
     <input value="submit" type="submit">
 </form>
 
+ <a href="/download">SKDJLFJLSDFJ</a>
+
 <SyllabusInput />
