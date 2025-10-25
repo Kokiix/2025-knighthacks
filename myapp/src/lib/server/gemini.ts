@@ -1,6 +1,5 @@
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
-// KENNY'S API KEY FOR FREE PLAN
 const ai = new GoogleGenAI({apiKey: "AIzaSyA_yIH40hmV07f5BFLTmczZlyYEarjsFLw"});
 
 export async function extract_data_from_syllabi(syllabi: string[]) {
