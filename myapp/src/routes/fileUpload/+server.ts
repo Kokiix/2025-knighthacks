@@ -13,7 +13,7 @@ export async function POST({ request }) {
 
     const result = gemini.extract_data_from_syllabi(files);
 
-    return new Response(JSON.stringify(result),{
-        headers: { "Content-Type": "application/json" }
-    });
+    // return new Response(JSON.stringify(result),{
+    //     headers: { "Content-Type": "application/json" }
+    // });
 }
