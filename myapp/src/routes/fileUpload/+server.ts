@@ -1,7 +1,9 @@
 import { Buffer } from 'node:buffer';
 import * as gemini from "$lib/server/gemini.ts";
+import { json } from '@sveltejs/kit';
 
 export async function POST({ request }) {
+    console.log("processing files at endpoint");
     const form_data_list = (await request.formData()).getAll("pdfs");
     const files = [];
     for (let i = 0; i < form_data_list.length; i++) {
@@ -12,8 +14,5 @@ export async function POST({ request }) {
     }
 
     const result = gemini.extract_data_from_syllabi(files);
-
-    // return new Response(JSON.stringify(result),{
-    //     headers: { "Content-Type": "application/json" }
-    // });
+    return json({ status: 'ok', message: 'Success' });
 }
