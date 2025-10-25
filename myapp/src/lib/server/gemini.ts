@@ -1,4 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
+import fs from "node:fs"
 
 // KENNY'S API KEY FOR FREE PLAN
 const ai = new GoogleGenAI({apiKey: "AIzaSyA_yIH40hmV07f5BFLTmczZlyYEarjsFLw"});
@@ -6,7 +7,7 @@ const ai = new GoogleGenAI({apiKey: "AIzaSyA_yIH40hmV07f5BFLTmczZlyYEarjsFLw"});
 export async function extract_data_from_syllabi(syllabi: string[]) {
 
     const prompt = [
-        { text: "Extract the important due dates from these class syllabi, and write them into an ics file as a string." },
+        { text: "Extract the important due dates from these class syllabi, and write them into an ics file." },
     ];
 
     for (let i in syllabi) {
@@ -24,12 +25,26 @@ export async function extract_data_from_syllabi(syllabi: string[]) {
         config: {
             responseMimeType: "application/json",
             responseSchema: {
-                type: Type.ARRAY,
-                items: {
-                    type: Type.STRING
+                type: Type.OBJECT,
+                properties: {
+                    icalFile: {
+                        type:Type.STRING
+                    }
                 },
             }
         }
     });
-    console.log(response.text);
+    const resp_content = response.text;
+    if (typeof resp_content === "string") {
+        const json_resp = JSON.parse(resp_content);
+        // return new File([json_resp.icalFile], "important_dates.ical");
+        fs.writeFile('user_calendars/test.ical', json_resp.icalFile, (err: any) => {
+        if (err) {
+            console.error(err);
+        } else {
+            // file written successfully
+        }
+        });
+
+    }
 }

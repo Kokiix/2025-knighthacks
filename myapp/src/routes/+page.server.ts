@@ -15,6 +15,8 @@ export const actions = {
             }
         }
 
-        gemini.extract_data_from_syllabi(files);
+        await gemini.extract_data_from_syllabi(files);
+        // const ical_file = await gemini.extract_data_from_syllabi(files);
+        // return new Response(ical_file,  { status: 200, headers: {} });
     }
 }
