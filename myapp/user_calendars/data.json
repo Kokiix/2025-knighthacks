@@ -1,0 +1,86 @@
+{
+    "assignments": [
+        {
+            "date": "2025-09-11",
+            "name": "Short critical reflection essay"
+        },
+        {
+            "date": "2025-10-23T23:59:00",
+            "name": "Film, novel, or television series review"
+        },
+        {
+            "date": "2025-11-06T23:59:00",
+            "name": "Abstract and bibliography for Research Paper"
+        },
+        {
+            "date": "2025-11-20T23:59:00",
+            "name": "Research paper"
+        }
+    ],
+    "attendancePolicy": "Requirements for class attendance and make-up exams, assignments, and other work in this course are consistent with university policies that can be found at: https://catalog.ufl.edu/ugrad/current/regulations/info/attendance.aspx",
+    "days": [
+        "Monday",
+        "Wednesday",
+        "Thursday"
+    ],
+    "exams": [
+        {
+            "date": "2025-10-01T15:00:00",
+            "location": "in class",
+            "name": "Midterm exam"
+        },
+        {
+            "date": "2025-12-12T12:30:00",
+            "location": "in person",
+            "name": "Final exam"
+        }
+    ],
+    "gradingWeights": [
+        {
+            "gradeType": "Attendance",
+            "gradeWeight": "8%"
+        },
+        {
+            "gradeType": "Participation",
+            "gradeWeight": "12%"
+        },
+        {
+            "gradeType": "Short critical reflection essay",
+            "gradeWeight": "10%"
+        },
+        {
+            "gradeType": "Midterm exam",
+            "gradeWeight": "15%"
+        },
+        {
+            "gradeType": "Film, novel, or television series review",
+            "gradeWeight": "10%"
+        },
+        {
+            "gradeType": "Abstract and bibliography for Research Paper",
+            "gradeWeight": "5%"
+        },
+        {
+            "gradeType": "Research paper",
+            "gradeWeight": "20%"
+        },
+        {
+            "gradeType": "Final exam",
+            "gradeWeight": "20%"
+        }
+    ],
+    "locations": [
+        "LIT 101",
+        "FAC 201"
+    ],
+    "name": "Art Crime",
+    "num": "ARH 1030",
+    "officeHours": "Thursdays 1:00 – 3:00 PM",
+    "prof": "Alice Klima",
+    "times": [
+        "3:00 – 3:50 pm",
+        "12:50 - 1:40 pm",
+        "1:55 – 2:45 pm",
+        "4:05 – 4:55 pm"
+    ]
+}

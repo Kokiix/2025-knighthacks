@@ -6,7 +6,7 @@ const ai = new GoogleGenAI({apiKey: "AIzaSyA_yIH40hmV07f5BFLTmczZlyYEarjsFLw"});
 export async function extract_data_from_syllabi(syllabi: string[]) {
 
     const prompt = [
-        { text: "Extract the important due dates from these class syllabi, and write them into an ics file." },
+        { text: "These are course syllabi. Extract needed information from each course into courseInfo, and due dates into an .ics file in icalFile." },
     ];
 
     for (let i in syllabi) {
@@ -27,7 +27,51 @@ export async function extract_data_from_syllabi(syllabi: string[]) {
                 type: Type.OBJECT,
                 properties: {
                     icalFile: {
-                        type:Type.STRING
+                        type: Type.STRING
+                    },
+                    courseInfo: {
+                        type: Type.ARRAY,
+                        items: {
+                            type: Type.OBJECT,
+                            properties: {
+                                num: {type: Type.STRING},
+                                name: {type: Type.STRING},
+                                prof: {type: Type.STRING},
+                                gradingWeights: {
+                                    type: Type.ARRAY,
+                                    items: {
+                                        type: Type.OBJECT,
+                                        properties: {
+                                            gradeType: {type: Type.STRING},
+                                            gradeWeight: {type: Type.STRING}
+                                        }
+                                    }
+                                },
+                                exams: {
+                                    type: Type.ARRAY,
+                                    items: {
+                                        type: Type.OBJECT,
+                                        properties: {
+                                            name: {type: Type.STRING},
+                                            date: {type: Type.STRING},
+                                        }
+                                    }
+                                },
+
+                                assignments: {
+                                    type: Type.ARRAY,
+                                    items: {
+                                        type: Type.OBJECT,
+                                        properties: {
+                                            name: {type: Type.STRING},
+                                            date: {type: Type.STRING},
+                                        }
+                                    }
+                                },
+                                attendancePolicy: {type: Type.STRING},
+                                officeHours: {type: Type.STRING},
+                            }
+                        }
                     }
                 },
             }
@@ -40,10 +84,14 @@ export async function extract_data_from_syllabi(syllabi: string[]) {
         fs.writeFile('user_calendars/test.ical', json_resp.icalFile, (err: any) => {
         if (err) {
             console.error(err);
-        } else {
-            // file written successfully
-        }
-        });
+        }});
+
+
+        console.log(json_resp.courseInfo);
+        fs.writeFile('user_calendars/data.json', JSON.stringify(json_resp.courseInfo), (err: any) => {
+        if (err) {
+            console.error(err);
+        }});
 
     }
 }
