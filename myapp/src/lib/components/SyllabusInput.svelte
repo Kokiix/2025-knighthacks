@@ -36,7 +36,6 @@
 		if (!selectedFiles) return;
 
 		let totalSize = 0;
-		const validFiles: File[] = [];
 		for (const file of selectedFiles) {
 			if (file.type !== "application/pdf") {
 				errorMessage =
@@ -45,8 +44,11 @@
 				return;
 			}
 			totalSize += file.size;
-			validFiles.push(file);
+			files.push(file);
 		}
+
+
+
 		if (totalSize > MAX_SIZE_TOTAL) {
 			errorMessage = "Total file size exceeds 20MB.";
 			files = []; // Clear selection
