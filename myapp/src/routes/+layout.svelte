@@ -1,7 +1,7 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-	import "../app.css"
-    import Page from './+page.svelte';
+	import favicon from "$lib/assets/favicon.svg";
+	import "../app.css";
+	import Page from "./+page.svelte";
 
 	let { children } = $props();
 </script>
