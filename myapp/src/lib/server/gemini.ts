@@ -1,9 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import fs from "node:fs"
 
-const apiKey = import.meta.env.API;
-
-const ai = new GoogleGenAI({apiKey: apiKey});
+const ai = new GoogleGenAI({apiKey: "AIzaSyA_yIH40hmV07f5BFLTmczZlyYEarjsFLw"});
 
 export async function extract_data_from_syllabi(syllabi: string[]) {
 
