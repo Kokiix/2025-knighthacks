@@ -22,6 +22,8 @@
 			});
 			if (response.ok) {
 				console.log("Files successfully uploaded");
+        document.cookie = JSON.stringify(await response.json());
+        // console.log("cookie is " + document.cookie);
 				goto("/dashboard");
 			} else {
 				console.error("File upload failed");

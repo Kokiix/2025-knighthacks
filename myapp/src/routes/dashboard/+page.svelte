@@ -1,6 +1,11 @@
 <script>
 	import ClassWidget from "$lib/components/ClassWidget.svelte";
 	import Navbar from "$lib/components/navbar.svelte";
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        // console.log(document.cookie);
+    })
 </script>
 
 <Navbar />
