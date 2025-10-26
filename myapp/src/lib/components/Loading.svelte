@@ -32,7 +32,7 @@
 		<!-- The spinner element -->
 		<div class="spinner"></div>
 		<!-- The cycling text -->
-		<p class="text-lg text-gray-600 font-medium">
+		<p class="text-lg text-gray-600 font-medium animate-pulse">
 			{loadingMessages[currentMessageIndex]}
 		</p>
 	</div>
