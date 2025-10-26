@@ -5,11 +5,11 @@
 
 <Navbar />
 
-<div class="p-8 flex flex-col gap-4">
+<div class="p-8 flex flex-col gap-4 max-w-7xl m-auto">
 	<p>My Classes</p>
-	<hr class="border-gray-200 border-1" />
 	<div>
 		<ClassWidget
+			classCode="MAC2311"
 			classTitle="Programming 1"
 			professor="Ashish Aggarwal"
 			email="a.aggarwal@ufl.edu"

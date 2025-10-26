@@ -10,6 +10,7 @@
 	} from "svelte-heros-v2";
 	import ProgressBar from "./ProgressBar.svelte";
 
+	export let classCode = "Class Code";
 	export let classTitle = "Class Title";
 	export let professor = "Professor Name";
 	export let email = "Professor Email";
@@ -21,7 +22,7 @@
 	class="flex flex-col gap-4 p-4 rounded-lg border-2 border-solid border-gray-200 mb-4"
 >
 	<div class="flex flex-row justify-between">
-		<p>{classTitle}</p>
+		<p>{classCode}: {classTitle}</p>
 		<Swatch class="w-4" />
 	</div>
 	<div class="flex flex-col gap-2">
@@ -34,11 +35,36 @@
 			<p class="text-gray-600">{email}</p>
 		</div>
 	</div>
-	<div class="flex flex-col gap-2">
-		<p>Attendance Policy:</p>
-		<p class="w-full p-4 rounded-lg bg-gray-100 text-gray-600">
-			{attendance}
-		</p>
+	<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+		<div class="flex flex-col gap-4">
+			<div class="flex flex-col gap-2">
+				<p>Attendance Policy:</p>
+				<p class="w-full p-4 rounded-lg bg-gray-100 text-gray-600">
+					{attendance}
+				</p>
+			</div>
+			<div class="flex flex-col gap-2">
+				<div class="flex flex-row gap-2">
+					<Clock class="w-4" />
+					<p>Office Hours:</p>
+				</div>
+				<div class="w-full p-4 rounded-lg bg-gray-100">
+					<p class="text-gray-600">{officeHours}</p>
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-col gap-2">
+			<div class="flex flex-row gap-2">
+				<ChartPie class="w-4" />
+				<p>Grading Breakdown:</p>
+			</div>
+			<div class="flex flex-col gap-2">
+				<ProgressBar text="Assignments" percentage="30" />
+				<ProgressBar text="Midterm" percentage="25" />
+				<ProgressBar text="Final Exam" percentage="30" />
+				<ProgressBar text="Participation" percentage="15" />
+			</div>
+		</div>
 	</div>
 	<div class="flex flex-col gap-2">
 		<div class="flex flex-row gap-2">
@@ -62,27 +88,6 @@
 		<div class="w-full p-4 rounded-lg bg-gray-100">
 			<p>Programming Assignment 1</p>
 			<p class="text-gray-600">October 10, 2025</p>
-		</div>
-	</div>
-	<div class="flex flex-col gap-2">
-		<div class="flex flex-row gap-2">
-			<ChartPie class="w-4" />
-			<p>Grading Breakdown:</p>
-		</div>
-		<div class="flex flex-col gap-2">
-			<ProgressBar text="Assignments" percentage="30" />
-			<ProgressBar text="Midterm" percentage="25" />
-			<ProgressBar text="Final Exam" percentage="30" />
-			<ProgressBar text="Participation" percentage="15" />
-		</div>
-	</div>
-	<div class="flex flex-col gap-2">
-		<div class="flex flex-row gap-2">
-			<Clock class="w-4" />
-			<p>Office Hours:</p>
-		</div>
-		<div class="w-full p-4 rounded-lg bg-gray-100">
-			<p class="text-gray-600">{officeHours}</p>
 		</div>
 	</div>
 </div>
