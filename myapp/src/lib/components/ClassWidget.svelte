@@ -1,5 +1,6 @@
 <script>
     import { Swatch, User, Envelope, Calendar, ExclamationCircle, ChartPie, Clock } from "svelte-heros-v2";
+    import ProgressBar from "./ProgressBar.svelte";
 
     export let classTitle = "Class Title";
     export let professor = "Professor Name";
@@ -55,6 +56,12 @@
         <div class="flex flex-row gap-2">
             <ChartPie class="w-4" />
             <p>Grading Breakdown:</p>
+        </div>
+        <div class="flex flex-col gap-2">
+            <ProgressBar text="Assignments" percentage="30"/>
+            <ProgressBar text="Midterm" percentage="25"/>
+            <ProgressBar text="Final Exam" percentage="30"/>
+            <ProgressBar text="Participation" percentage="15"/>
         </div>
     </div>
     <div class="flex flex-col gap-2">
