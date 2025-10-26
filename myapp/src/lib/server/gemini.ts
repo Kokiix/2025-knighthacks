@@ -12,9 +12,11 @@ You are an expert data extraction assistant.
 Your task is to process the provided course syllabi (PDF files) and extract key information into a structured JSON format. You must also compile all due dates into a single iCalendar (.ics) file format.
 
 For each syllabus, populate the fields in the 'courseInfo' object.
+- For the attendance policy and office hours fields, ensure the responses are no longer than two sentences.
+- When generating the grading breakdown, sort them in order of weight -- from highest to lowest.
 - If a piece of information for a specific field cannot be found or read, you MUST insert an empty string instead of making up information; for example: attendancePolicy: ""
 
-For the 'icalFile' field, generate a single string in valid iCalendar format containing all due dates (assignments, exams, etc.) from ALL provided syllabi.
+For the 'icalFile' field, generate a single string in valid iCalendar format containing only the most THE MOST important dates (midterms, finals, projects, etc) from ALL provided syllabi.
 ` },
     ];
 
@@ -94,6 +96,8 @@ For the 'icalFile' field, generate a single string in valid iCalendar format con
         if (err) {
             console.error(err);
         }});
+
+        console.log(json_resp);
 
         return json_resp.courseInfo;
         // console.log(json_resp.courseInfo);
