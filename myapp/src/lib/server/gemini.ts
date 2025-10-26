@@ -92,14 +92,14 @@ For the 'icalFile' field, generate a single string in valid iCalendar format con
     const resp_content = response.text;
     if (typeof resp_content === "string") {
         const json_resp = JSON.parse(resp_content);
-        fs.writeFile('user_calendars/test.ical', json_resp.icalFile, (err: any) => {
-        if (err) {
-            console.error(err);
-        }});
+        // fs.writeFile('user_calendars/test.ical', json_resp.icalFile, (err: any) => {
+        // if (err) {
+        //     console.error(err);
+        // }});
 
-        console.log(json_resp);
+        // console.log(json_resp);
 
-        return json_resp.courseInfo;
+        return json_resp;
         // console.log(json_resp.courseInfo);
         // fs.writeFile('user_calendars/data.json', JSON.stringify(json_resp.courseInfo), (err: any) => {
         // if (err) {

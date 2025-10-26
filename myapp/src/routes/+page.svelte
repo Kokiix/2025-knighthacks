@@ -19,5 +19,5 @@
 	{#if loading}
 		<Loading />
 	{/if}
-	<SyllabusInput />
+	<SyllabusInput setLoading={set_load_on}/>
 </div>

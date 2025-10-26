@@ -3,8 +3,12 @@
 	import Navbar from "$lib/components/navbar.svelte";
 	import { onMount } from "svelte";
 
+	export let data;
+
 	let classes: Array<Object> = [];
+	let ical: any;
 	onMount(() => {
+		ical = data.cal;
 		try {
 			const cookieValue = document.cookie;
 			const parsedCookie = JSON.parse(
@@ -20,7 +24,7 @@
 	});
 </script>
 
-<Navbar />
+<Navbar ical={ical} />
 
 <div class="p-8 flex flex-col gap-4 max-w-7xl m-auto">
 	<p>My Classes</p>
