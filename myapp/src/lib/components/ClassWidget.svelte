@@ -1,30 +1,69 @@
 <script>
-    import { Swatch } from "svelte-heros-v2";
-    import { User } from "svelte-heros-v2";
-    import { Envelope } from "svelte-heros-v2";
+    import { Swatch, User, Envelope, Calendar, ExclamationCircle, ChartPie, Clock } from "svelte-heros-v2";
 
     export let classTitle = "Class Title";
     export let professor = "Professor Name";
     export let email = "Professor Email";
     export let attendance = "This is the class's attendance policy."
+    export let officeHours = "This is your professor's office hours."
 
 </script>
-<div class="flex flex-col gap-4 p-4 rounded-lg border-2 border-solid border-gray-200">
+<div class="flex flex-col gap-4 p-4 rounded-lg border-2 border-solid border-gray-200 mb-4">
     <div class="flex flex-row justify-between">
         <p>{classTitle}</p>
         <Swatch class="w-4"/>
     </div>
-    <div class="flex flex-row gap-2">
-        <User class="w-4" />
-        <p class="text-gray-600">{professor}</p>
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-row gap-2">
+            <User class="w-4" />
+            <p class="text-gray-600">{professor}</p>
+        </div>
+        <div class="flex flex-row gap-2">
+            <Envelope class="w-4" />
+            <p class="text-gray-600">{email}</p>
+        </div>
     </div>
-    <div class="flex flex-row gap-2">
-        <Envelope class="w-4" />
-        <p class="text-gray-600">{email}</p>
-    </div>
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
         <p>Attendance Policy:</p>
-        <p class="w-full px-2 py-4 rounded-lg bg-gray-100">{attendance}</p>
+        <p class="w-full p-4 rounded-lg bg-gray-100 text-gray-600">{attendance}</p>
     </div>
-    
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-row gap-2">
+            <Calendar class="w-4" />
+            <p>Exams and Tests:</p> 
+        </div>
+        <div class="w-full p-4 rounded-lg bg-gray-100">
+            <p>Midterm Exam</p>
+            <p class="text-gray-600">November 14, 2025</p>
+        </div>
+        <div class="w-full p-4 rounded-lg bg-gray-100">
+            <p>Final Exam</p>
+            <p class="text-gray-600">October 30, 2025</p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-row gap-2">
+            <ExclamationCircle class="w-4" />
+            <p>Assignments and Projects:</p> 
+        </div>
+        <div class="w-full p-4 rounded-lg bg-gray-100">
+            <p>Programming Assignment 1</p>
+            <p class="text-gray-600">October 10, 2025</p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-row gap-2">
+            <ChartPie class="w-4" />
+            <p>Grading Breakdown:</p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-row gap-2">
+            <Clock class="w-4" />
+            <p>Office Hours:</p>
+        </div>
+        <div class="w-full p-4 rounded-lg bg-gray-100">
+            <p class="text-gray-600">{officeHours}</p>
+        </div>
+    </div>
 </div>
