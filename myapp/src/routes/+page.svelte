@@ -1,6 +1,5 @@
 <script>
-    import SyllabusInput from "$lib/components/SyllabusInput.svelte";
-
+	import SyllabusInput from "$lib/components/SyllabusInput.svelte";
 </script>
 
 <SyllabusInput />
