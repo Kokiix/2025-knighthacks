@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
     import Page from "../../routes/+page.svelte";
 
   let files: File[] = [];
@@ -21,6 +22,7 @@
         });
         if (response.ok) {
             console.log('Files successfully uploaded');
+            goto("/dashboard");
         } else {
             console.error('File upload failed')
         }
