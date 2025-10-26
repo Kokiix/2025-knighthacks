@@ -1,6 +1,11 @@
 <script>
 	import logo from "$lib/assets/logo.png";
 	import SyllabusInput from "$lib/components/SyllabusInput.svelte";
+	import Loading from "$lib/components/Loading.svelte";
+	let loading = false;
+	function set_load_on() {
+		loading = true;
+	}
 </script>
 
 <div class="max-w-4xl m-auto py-16 flex flex-col text-center gap-8">
@@ -13,5 +18,8 @@
 			Upload your course syllabi and get organized instantly.
 		</h2>
 	</div>
+	{#if loading}
+		<Loading />
+	{/if}
 	<SyllabusInput />
 </div>
