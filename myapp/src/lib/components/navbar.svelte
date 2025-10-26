@@ -3,7 +3,7 @@
 
 </script>
 
-<div class="p-4 border-solid border-b border-gray-200 flex flex-row items-center justify-between">
+<div class="py-4 px-8 border-solid border-b border-gray-200 flex flex-row items-center justify-between">
     <p>SyllabiSync</p>
 
     <div class="flex flex-row gap-4">
