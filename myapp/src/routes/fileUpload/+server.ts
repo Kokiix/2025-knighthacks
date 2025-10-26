@@ -2,7 +2,7 @@ import { Buffer } from 'node:buffer';
 import * as gemini from "$lib/server/gemini.ts";
 import { json } from '@sveltejs/kit';
 
-export async function POST({ request }) {
+export async function POST({ cookies, request }) {
     console.log("processing files at endpoint");
     const form_data_list = (await request.formData()).getAll("pdfs");
     const files = [];
@@ -13,6 +13,13 @@ export async function POST({ request }) {
         }
     }
 
-    const result = gemini.extract_data_from_syllabi(files);
+    const info_json = await gemini.extract_data_from_syllabi(files);
+    console.log(JSON.stringify(info_json));
+    cookies.set("class_info", JSON.stringify(info_json), { path: "/dashboard" });
     return json({ status: 'ok', message: 'Success' });
+    // return json({
+    //      status: 'success', 
+    //      message: 'Success',
+    //      originalData: info_json,
+    //     });
 }

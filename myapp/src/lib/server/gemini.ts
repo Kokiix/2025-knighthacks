@@ -6,7 +6,7 @@ const ai = new GoogleGenAI({apiKey: "AIzaSyA_yIH40hmV07f5BFLTmczZlyYEarjsFLw"});
 export async function extract_data_from_syllabi(syllabi: string[]) {
 
     const prompt = [
-        { text: "These are course syllabi. Extract needed information from each course into courseInfo, and due dates into an .ics file in icalFile." },
+        { text: "These are course syllabi. Extract needed information from each course into courseInfo, and due dates into an .ics file in icalFile. Insert undefined values if you cannot find or cannot read a field." },
     ];
 
     for (let i in syllabi) {
@@ -86,12 +86,12 @@ export async function extract_data_from_syllabi(syllabi: string[]) {
             console.error(err);
         }});
 
-
-        console.log(json_resp.courseInfo);
-        fs.writeFile('user_calendars/data.json', JSON.stringify(json_resp.courseInfo), (err: any) => {
-        if (err) {
-            console.error(err);
-        }});
+        return json_resp.courseInfo;
+        // console.log(json_resp.courseInfo);
+        // fs.writeFile('user_calendars/data.json', JSON.stringify(json_resp.courseInfo), (err: any) => {
+        // if (err) {
+        //     console.error(err);
+        // }});
 
     }
 }

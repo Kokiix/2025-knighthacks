@@ -1,5 +1,10 @@
 <script lang="ts">
+<<<<<<< HEAD
 	import Page from "../../routes/+page.svelte";
+=======
+    import { goto } from "$app/navigation";
+    import Page from "../../routes/+page.svelte";
+>>>>>>> 4eca6d70165612adf5705e36e9cc7e60efca5b1a
 
 	let files: File[] = [];
 	let errorMessage = "";
@@ -14,6 +19,7 @@
 
 		console.log("Submitting files...", files);
 
+<<<<<<< HEAD
 		try {
 			const response = await fetch("/fileUpload", {
 				method: "POST",
@@ -28,6 +34,23 @@
 			console.error("An error occurred: ", error);
 		}
 	};
+=======
+    try {
+        const response = await fetch('/fileUpload', {
+            method: 'POST',
+            body: formData
+        });
+        if (response.ok) {
+            console.log('Files successfully uploaded');
+            goto("/dashboard");
+        } else {
+            console.error('File upload failed')
+        }
+    } catch (error) {
+        console.error('An error occurred: ', error);
+    }
+  };
+>>>>>>> 4eca6d70165612adf5705e36e9cc7e60efca5b1a
 
 	const handleFileSelection = (selectedFiles: FileList | null) => {
 		errorMessage = "";
