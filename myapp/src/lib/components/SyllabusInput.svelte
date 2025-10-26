@@ -22,6 +22,8 @@
 			});
 			if (response.ok) {
 				console.log("Files successfully uploaded");
+        document.cookie = JSON.stringify(await response.json());
+        // console.log("cookie is " + document.cookie);
 				goto("/dashboard");
 			} else {
 				console.error("File upload failed");
@@ -36,7 +38,6 @@
 		if (!selectedFiles) return;
 
 		let totalSize = 0;
-		const validFiles: File[] = [];
 		for (const file of selectedFiles) {
 			if (file.type !== "application/pdf") {
 				errorMessage =
@@ -45,8 +46,11 @@
 				return;
 			}
 			totalSize += file.size;
-			validFiles.push(file);
+			files.push(file);
 		}
+
+
+
 		if (totalSize > MAX_SIZE_TOTAL) {
 			errorMessage = "Total file size exceeds 20MB.";
 			files = []; // Clear selection

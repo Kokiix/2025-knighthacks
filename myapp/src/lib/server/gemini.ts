@@ -6,7 +6,16 @@ const ai = new GoogleGenAI({apiKey: "AIzaSyA_yIH40hmV07f5BFLTmczZlyYEarjsFLw"});
 export async function extract_data_from_syllabi(syllabi: string[]) {
 
     const prompt = [
-        { text: "These are course syllabi. Extract needed information from each course into courseInfo, and due dates into an .ics file in icalFile. Insert undefined values if you cannot find or cannot read a field." },
+        // { text: "These are course syllabi. Extract needed information from each course into courseInfo, and due dates into an .ics file in icalFile. Insert undefined values if you cannot find or cannot read a field." },
+        { text: `
+You are an expert data extraction assistant.
+Your task is to process the provided course syllabi (PDF files) and extract key information into a structured JSON format. You must also compile all due dates into a single iCalendar (.ics) file format.
+
+For each syllabus, populate the fields in the 'courseInfo' object.
+- If a piece of information for a specific field cannot be found or read, you MUST insert an empty string instead of making up information; for example: attendancePolicy: ""
+
+For the 'icalFile' field, generate a single string in valid iCalendar format containing all due dates (assignments, exams, etc.) from ALL provided syllabi.
+` },
     ];
 
     for (let i in syllabi) {
@@ -37,6 +46,7 @@ export async function extract_data_from_syllabi(syllabi: string[]) {
                                 num: {type: Type.STRING},
                                 name: {type: Type.STRING},
                                 prof: {type: Type.STRING},
+                                profEmail: {type: Type.STRING},
                                 gradingWeights: {
                                     type: Type.ARRAY,
                                     items: {
@@ -80,7 +90,6 @@ export async function extract_data_from_syllabi(syllabi: string[]) {
     const resp_content = response.text;
     if (typeof resp_content === "string") {
         const json_resp = JSON.parse(resp_content);
-        // return new File([json_resp.icalFile], "important_dates.ical");
         fs.writeFile('user_calendars/test.ical', json_resp.icalFile, (err: any) => {
         if (err) {
             console.error(err);

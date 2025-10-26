@@ -14,12 +14,12 @@ export async function POST({ cookies, request }) {
     }
 
     const info_json = await gemini.extract_data_from_syllabi(files);
-    console.log(JSON.stringify(info_json));
-    cookies.set("class_info", JSON.stringify(info_json), { path: "/dashboard" });
-    return json({ status: 'ok', message: 'Success' });
-    // return json({
-    //      status: 'success', 
-    //      message: 'Success',
-    //      originalData: info_json,
-    //     });
+    // console.log(JSON.stringify(info_json));
+    // cookies.set("class_info", JSON.stringify(info_json), { path: "/dashboard" });
+    // return json({ status: 'ok', message: 'Success' });
+    return json({
+         status: 'success', 
+         message: 'Success',
+         originalData: info_json,
+        });
 }
