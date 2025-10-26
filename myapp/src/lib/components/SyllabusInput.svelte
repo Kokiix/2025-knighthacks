@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import Page from "../../routes/+page.svelte";
+  export let setLoading;
 
 	let files: File[] = [];
 	let errorMessage = "";
@@ -16,18 +17,19 @@
 		console.log("Submitting files...", files);
 
 		try {
-			const response = await fetch("/fileUpload", {
+			fetch("/fileUpload", {
 				method: "POST",
 				body: formData,
-			});
-			if (response.ok) {
-				console.log("Files successfully uploaded");
-        document.cookie = JSON.stringify(await response.json());
-        // console.log("cookie is " + document.cookie);
-				goto("/dashboard");
-			} else {
-				console.error("File upload failed");
-			}
+			}).then(async response => {
+        if (response.ok) {
+          console.log("Files successfully uploaded");
+          document.cookie = JSON.stringify(await response.json());
+          goto("/dashboard");
+        } else {
+          console.error("File upload failed");
+        }
+      });
+      setLoading();
 		} catch (error) {
 			console.error("An error occurred: ", error);
 		}
