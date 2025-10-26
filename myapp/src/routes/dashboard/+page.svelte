@@ -3,10 +3,20 @@
 	import Navbar from "$lib/components/navbar.svelte";
 	import { onMount } from "svelte";
 
-	let courses: Array<Object>;
+	let classes: Array<Object> = [];
 	onMount(() => {
-		courses = JSON.parse(document.cookie).originalData;
-		console.log(courses);
+		try {
+			const cookieValue = document.cookie;
+			const parsedCookie = JSON.parse(
+				cookieValue.substring(cookieValue.indexOf("=") + 1)
+			);
+			if (parsedCookie && parsedCookie.originalData) {
+				classes = parsedCookie.originalData;
+			}
+			console.log(classes);
+		} catch (error) {
+			console.error("Error parsing cookie:", error);
+		}
 	});
 </script>
 

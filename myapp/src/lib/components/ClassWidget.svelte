@@ -61,7 +61,7 @@
 				<ChartPie class="w-4" />
 				<p>Grading Breakdown:</p>
 			</div>
-			{#each gradingBreakdown as item}
+			{#each gradingBreakdown.sort() as item}
 				<ProgressBar
 					text={item.gradeType}
 					percentage={item.gradeWeight}
