@@ -95,6 +95,8 @@ For the 'icalFile' field, generate a single string in valid iCalendar format con
             console.error(err);
         }});
 
+        console.log(json_resp);
+
         return json_resp.courseInfo;
         // console.log(json_resp.courseInfo);
         // fs.writeFile('user_calendars/data.json', JSON.stringify(json_resp.courseInfo), (err: any) => {

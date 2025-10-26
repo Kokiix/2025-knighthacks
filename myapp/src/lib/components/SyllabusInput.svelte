@@ -22,8 +22,9 @@
 			});
 			if (response.ok) {
 				console.log("Files successfully uploaded");
-        document.cookie = JSON.stringify(await response.json());
-        // console.log("cookie is " + document.cookie);
+				document.cookie = JSON.stringify(await response.json());
+
+				// console.log("cookie is " + document.cookie);
 				goto("/dashboard");
 			} else {
 				console.error("File upload failed");
@@ -48,8 +49,6 @@
 			totalSize += file.size;
 			files.push(file);
 		}
-
-
 
 		if (totalSize > MAX_SIZE_TOTAL) {
 			errorMessage = "Total file size exceeds 20MB.";

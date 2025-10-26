@@ -16,6 +16,9 @@
 	export let email = "Professor Email";
 	export let attendance = "This is the class's attendance policy.";
 	export let officeHours = "This is your professor's office hours.";
+	export let gradingBreakdown = [];
+	export let exams = [];
+	export let assignments = [];
 </script>
 
 <div
@@ -58,36 +61,40 @@
 				<ChartPie class="w-4" />
 				<p>Grading Breakdown:</p>
 			</div>
-			<div class="flex flex-col gap-2">
-				<ProgressBar text="Assignments" percentage="30" />
-				<ProgressBar text="Midterm" percentage="25" />
-				<ProgressBar text="Final Exam" percentage="30" />
-				<ProgressBar text="Participation" percentage="15" />
+			{#each gradingBreakdown as item}
+				<ProgressBar
+					text={item.gradeType}
+					percentage={item.gradeWeight}
+				/>
+			{/each}
+		</div>
+	</div>
+	{#if exams.length > 0}
+		<div class="flex flex-col gap-2">
+			<div class="flex flex-row gap-2 items-center">
+				<Calendar class="w-4" />
+				<p>Exams and Tests:</p>
 			</div>
+			{#each exams as exam}
+				<div class="w-full p-4 rounded-lg bg-gray-100">
+					<p>{exam.name}</p>
+					<p class="text-gray-600">{exam.date}</p>
+				</div>
+			{/each}
 		</div>
-	</div>
-	<div class="flex flex-col gap-2">
-		<div class="flex flex-row gap-2">
-			<Calendar class="w-4" />
-			<p>Exams and Tests:</p>
+	{/if}
+	{#if assignments.length > 0}
+		<div class="flex flex-col gap-2">
+			<div class="flex flex-row gap-2 items-center">
+				<ExclamationCircle class="w-4" />
+				<p>Assignments and Projects:</p>
+			</div>
+			{#each assignments as assignment}
+				<div class="w-full p-4 rounded-lg bg-gray-100">
+					<p>{assignment.name}</p>
+					<p class="text-gray-600">{assignment.date}</p>
+				</div>
+			{/each}
 		</div>
-		<div class="w-full p-4 rounded-lg bg-gray-100">
-			<p>Midterm Exam</p>
-			<p class="text-gray-600">November 14, 2025</p>
-		</div>
-		<div class="w-full p-4 rounded-lg bg-gray-100">
-			<p>Final Exam</p>
-			<p class="text-gray-600">October 30, 2025</p>
-		</div>
-	</div>
-	<div class="flex flex-col gap-2">
-		<div class="flex flex-row gap-2">
-			<ExclamationCircle class="w-4" />
-			<p>Assignments and Projects:</p>
-		</div>
-		<div class="w-full p-4 rounded-lg bg-gray-100">
-			<p>Programming Assignment 1</p>
-			<p class="text-gray-600">October 10, 2025</p>
-		</div>
-	</div>
+	{/if}
 </div>

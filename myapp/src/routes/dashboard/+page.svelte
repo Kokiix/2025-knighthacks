@@ -15,14 +15,24 @@
 <div class="p-8 flex flex-col gap-4 max-w-7xl m-auto">
 	<p>My Classes</p>
 	<div>
-		{#each courses as course}
-			<ClassWidget
-				classTitle={course.name}
-				professor={course.prof}
-				email={course.profEmail}
-				attendance={course.attendancePolicy}
-				officeHours={course.officeHours}
-			/>
-		{/each}
+		{#if classes.length > 0}
+			{#each classes as c}
+				<ClassWidget
+					classCode={c.num}
+					classTitle={c.name}
+					professor={c.prof}
+					email={c.profEmail}
+					attendance={c.attendancePolicy}
+					officeHours={c.officeHours}
+					gradingBreakdown={c.gradingWeights}
+					exams={c.exams}
+					assignments={c.assignments}
+				/>
+			{/each}
+		{:else}
+			<p class="text-gray-500">
+				No classes found. Upload a syllabus to get started.
+			</p>
+		{/if}
 	</div>
 </div>
