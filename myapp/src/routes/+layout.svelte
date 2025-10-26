@@ -13,3 +13,7 @@
 </svelte:head>
 
 {@render children?.()}
+
+<p class="text-gray-400 pl-2 pb-1">
+	Created with ♥ for KnightHacks 2025 by Stefan, Kenny, & Frank!
+</p>
