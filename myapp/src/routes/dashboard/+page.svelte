@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import ClassWidget from "$lib/components/ClassWidget.svelte";
 	import Navbar from "$lib/components/navbar.svelte";
     import { onMount } from "svelte";
 
+	let courses: Array<Object>;
     onMount(() => {
-        // console.log(document.cookie);
+        courses = JSON.parse(document.cookie).originalData;
+		console.log(courses);
     })
 </script>
 
@@ -14,12 +16,12 @@
 	<p>My Classes</p>
 	<hr class="border-gray-200 border-1" />
 	<div>
-		<ClassWidget
-			classTitle="Programming 1"
-			professor="Ashish Aggarwal"
-			email="a.aggarwal@ufl.edu"
-			attendance="Attendance is mandatory."
-		/>
-		<ClassWidget />
+		{#each courses as course}
+			<ClassWidget classTitle={course.name}
+			professor={course.prof}
+			email={course.profEmail}
+			attendance={course.attendancePolicy}
+			officeHours={course.officeHours}/>
+		{/each}
 	</div>
 </div>

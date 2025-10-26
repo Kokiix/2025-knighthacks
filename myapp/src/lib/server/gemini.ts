@@ -46,6 +46,7 @@ For the 'icalFile' field, generate a single string in valid iCalendar format con
                                 num: {type: Type.STRING},
                                 name: {type: Type.STRING},
                                 prof: {type: Type.STRING},
+                                profEmail: {type: Type.STRING},
                                 gradingWeights: {
                                     type: Type.ARRAY,
                                     items: {
