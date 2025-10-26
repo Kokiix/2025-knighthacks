@@ -12,8 +12,11 @@
 	<title>SyllaBook</title>
 </svelte:head>
 
-{@render children?.()}
-
-<p class="text-gray-400 pl-2 pb-1">
-	Created with ♥ for KnightHacks 2025 by Stefan, Kenny, & Frank!
-</p>
+<div class="flex flex-col min-h-screen">
+	<div class="flex-grow">
+		{@render children?.()}
+	</div>
+	<p class="text-gray-400 pl-2 pb-1 mt-auto">
+		Created with ♥ for KnightHacks 2025 by Stefan, Kenny, & Frank!
+	</p>
+</div>
