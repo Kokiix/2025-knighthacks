@@ -8,6 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" href={logo} />
+	<title>SyllaBook</title>
 </svelte:head>
 
 {@render children?.()}
