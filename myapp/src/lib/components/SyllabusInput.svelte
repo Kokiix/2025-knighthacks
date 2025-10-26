@@ -35,18 +35,22 @@
 
     let totalSize = 0;
     const validFiles: File[] = [];
-
+    for (const file of selectedFiles) {
+      if (file.type !== 'application/pdf') {
+        errorMessage = 'Invalid file type. Only PDF files are accepted.';
+        files = []; // Clear selection
+        return;
+      }
+      totalSize += file.size;
+      validFiles.push(file);
+    }
     if (totalSize > MAX_SIZE_TOTAL) {
       errorMessage = 'Total file size exceeds 20MB.';
       files = []; // Clear selection
       return;
     }
 
-    files = validFiles;
-
-    if (files.length > 0) {
-      submitForm();
-    }
+    submitForm();
   };
 
   function handleChange(event: Event & { currentTarget: HTMLInputElement }) {
