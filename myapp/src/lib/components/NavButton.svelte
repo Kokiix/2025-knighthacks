@@ -18,14 +18,14 @@
 {#if href}
 	<a
 		{href}
-		class="flex items-center gap-2 px-4 py-2 border border-solid border-gray-200 hover:bg-gray-100 rounded-md transition-all duration-200"
+		class="flex items-center gap-2 px-4 py-2 border border-solid border-indigo-200 hover:bg-indigo-100 rounded-md transition-all duration-200"
 		on:click|preventDefault={handleClick}
 	>
 		<span>{text}</span>
 	</a>
 {:else}
 	<button
-		class="flex items-center gap-2 px-4 py-2 border border-solid border-gray-200 hover:bg-gray-100 rounded-md transition-all duration-200"
+		class="flex items-center gap-2 px-4 py-2 border border-solid border-indigo-200 hover:bg-indigo-100 rounded-md transition-all duration-200"
 		on:click={handleClick}
 	>
 		<span>{text}</span>

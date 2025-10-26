@@ -79,14 +79,16 @@
 >
 	<label
 		for="dropzone-file"
-		class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+		class="flex flex-col items-center justify-center w-full h-64 border-2 border-indigo-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
 		on:dragover|preventDefault
 		on:drop={handleDrop}
 	>
 		<div class="flex flex-col items-center justify-center pt-5 pb-6">
-			<CloudArrowUp class="w-16 h-16 text-gray-500" />
+			<CloudArrowUp class="w-16 h-16 text-indigo-400" />
 			<p class="mb-2 text-sm text-gray-500">
-				<span class="font-semibold">Click to upload</span> or drag and drop
+				<span class="font-semibold text-indigo-400"
+					>Click to upload</span
+				> or drag and drop
 			</p>
 			<p class="text-xs text-gray-500">Accepts PDF files (MAX. 20mb)</p>
 			{#if errorMessage}
