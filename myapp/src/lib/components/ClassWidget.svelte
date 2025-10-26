@@ -22,19 +22,16 @@
 </script>
 
 <div
-	class="flex flex-col gap-4 p-4 rounded-lg border-2 border-solid border-gray-200 mb-4"
+	class="flex flex-col gap-4 p-4 rounded-lg border-2 border-solid border-indigo-200 mb-4"
 >
-	<div class="flex flex-row justify-between">
-		<p>{classCode}: {classTitle}</p>
-		<Swatch class="w-4" />
-	</div>
+	<p>{classCode}: {classTitle}</p>
 	<div class="flex flex-col gap-2">
-		<div class="flex flex-row gap-2">
-			<User class="w-4" />
+		<div class="flex flex-row gap-2 items-center">
+			<User class="w-4 text-indigo-500" />
 			<p class="text-gray-600">{professor}</p>
 		</div>
-		<div class="flex flex-row gap-2">
-			<Envelope class="w-4" />
+		<div class="flex flex-row gap-2 items-center">
+			<Envelope class="w-4 text-indigo-500" />
 			<p class="text-gray-600">{email}</p>
 		</div>
 	</div>
@@ -48,7 +45,7 @@
 			</div>
 			<div class="flex flex-col gap-2">
 				<div class="flex flex-row gap-2">
-					<Clock class="w-4" />
+					<Clock class="w-4 text-indigo-500" />
 					<p>Office Hours:</p>
 				</div>
 				<div class="w-full p-4 rounded-lg bg-gray-100">
@@ -58,7 +55,7 @@
 		</div>
 		<div class="flex flex-col gap-2">
 			<div class="flex flex-row gap-2">
-				<ChartPie class="w-4" />
+				<ChartPie class="w-4 text-indigo-500" />
 				<p>Grading Breakdown:</p>
 			</div>
 			{#each gradingBreakdown.sort() as item}
@@ -72,7 +69,7 @@
 	{#if exams.length > 0}
 		<div class="flex flex-col gap-2">
 			<div class="flex flex-row gap-2 items-center">
-				<Calendar class="w-4" />
+				<Calendar class="w-4 text-indigo-500" />
 				<p>Exams and Tests:</p>
 			</div>
 			{#each exams as exam}
@@ -86,7 +83,7 @@
 	{#if assignments.length > 0}
 		<div class="flex flex-col gap-2">
 			<div class="flex flex-row gap-2 items-center">
-				<ExclamationCircle class="w-4" />
+				<ExclamationCircle class="w-4 text-indigo-500" />
 				<p>Assignments and Projects:</p>
 			</div>
 			{#each assignments as assignment}
