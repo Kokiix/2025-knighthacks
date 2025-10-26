@@ -1,6 +1,7 @@
 <script>
     import ClassWidget from "$lib/components/ClassWidget.svelte";
     import Navbar from "$lib/components/navbar.svelte";
+    // console.log(document.cookie);
 </script>
 
 <Navbar />
@@ -9,7 +10,6 @@
     <p>My Classes</p>
     <hr class="border-gray-200 border-1"/>
     <div>
-        <ClassWidget classTitle="Programming 1" professor="Ashish Aggarwal" email="a.aggarwal@ufl.edu" attendance="Attendance is mandatory."/>
         <ClassWidget />
     </div>
 </div>
