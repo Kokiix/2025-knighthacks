@@ -1,10 +1,10 @@
 <script>
 	import NavButton from "./NavButton.svelte";
 	import logo from "$lib/assets/logo.png";
-	 export let ical;
+	export let ical;
 
 	function download_cal() {
-		console.log(ical);
+		ical = new File([JSON.parse(ical)], "syllabus-events.ical", {type: "text/calendar"});
 		const href = URL.createObjectURL(ical);
 
 		// Create a temporary anchor element
